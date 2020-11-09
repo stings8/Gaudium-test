@@ -35,7 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private LinearLayout layMenuOferta, layMenuColeta, layMenuEntrega;
     private RelativeLayout layColetaButton, layEntregaButton, layMenu;
-    private TextView txtEnderecoOferta, txtEnderecoColeta, txtEntrega;
+    private TextView txtEnderecoOferta, txtEnderecoColeta, txtEntrega, txtQtdEntrega, txtEnderecoEntrega, txtTempo;
     private Button btnRejeitar, btnAceitar, btnColetar, btnEntregar, btnDebugAction;
 
     Handler handler;
@@ -77,6 +77,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         layColetaButton = findViewById(R.id.layColetaButton);
         txtEnderecoColeta = findViewById(R.id.txtEnderecoColeta);
         txtEntrega = findViewById(R.id.txtEntrega);
+        txtTempo = findViewById(R.id.txtTempo);
+        txtQtdEntrega = findViewById(R.id.txtQtdEntrega);
         btnColetar = findViewById(R.id.btnColetar);
         btnColetar.setOnClickListener(view -> onCollect());
 
@@ -84,6 +86,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         layMenuEntrega = findViewById(R.id.layMenuEntrega);
         layEntregaButton = findViewById(R.id.layEntregaButton);
         txtEnderecoOferta = findViewById(R.id.txtEnderecoOferta);
+        txtEnderecoEntrega = findViewById(R.id.txtEnderecoEntrega);
         btnEntregar = findViewById(R.id.btnEntregar);
         btnEntregar.setOnClickListener(view -> onDeliver());
 
@@ -304,6 +307,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void showMenuOferta(boolean visible){
         layMenuOferta.setVisibility(visible?View.VISIBLE:View.GONE);
         if (entregadorObj.getPedido() != null) {
+            txtQtdEntrega.setText("Entregas: " + entregadorObj.getPedido().getEntregas().length);
             txtEnderecoOferta.setText(entregadorObj.getPedido().getEndereco_coleta());
         }
     }
@@ -332,6 +336,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         layMenuEntrega.setVisibility(visible?View.VISIBLE:View.GONE);
         if (entregadorObj.getPedido() != null && entregadorObj.getPedido().getEntregaAtual() != null) {
             PedidoJsonObj.EntregaObj entrega = entregadorObj.getPedido().getEntregaAtual();
+
+            txtEnderecoEntrega.setText(entregadorObj.getPedido().getEntregaAtual().getEndereco());
 
             // Se estiver a menos de 300 mentros, exibe o botão de entregar para exibir a próxima entrega ou encerrar
             layEntregaButton.setVisibility(dLocRet.distanceToInMeters(entrega.getLatLng()) < 300 ? View.VISIBLE : View.GONE);
