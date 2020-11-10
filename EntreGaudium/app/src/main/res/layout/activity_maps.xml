@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -196,15 +196,36 @@
     </RelativeLayout>
 
     <!-- Botão para DEBUG -->
-    <Button
-        android:id="@+id/btnDebugAction"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_above="@id/layMenu"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="8dp"
-        android:backgroundTint="#FFDD5D"
-        android:drawableTop="@drawable/ic_bug"
-        android:text="Solicitar pedido"/>
+        android:layout_margin="8dp">
+
+        <Button
+            android:id="@+id/btnUser"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFDD5D"
+            android:drawableTop="@drawable/pin_user"
+            android:text="Ir Perfil"/>
+
+        <Button
+            android:id="@+id/btnDebugAction"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFDD5D"
+            android:drawableTop="@drawable/ic_bug"
+            android:text="Solicitar pedido"/>
+
+    </LinearLayout>
+
 </RelativeLayout>

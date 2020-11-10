@@ -3,4 +3,9 @@
     <color name="colorPrimary">#39ABFD</color>
     <color name="colorPrimaryDark">#2B75FD</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="viewSemi">#CC2B76C9</color>
+    <color name="inferior">#2E91FF</color>
+    <color name="separador">#82B4FF</color>
+    <color name="cargo">#DFE9F7</color>
+    <color name="descricao">#ECF4FF</color>
 </resources>

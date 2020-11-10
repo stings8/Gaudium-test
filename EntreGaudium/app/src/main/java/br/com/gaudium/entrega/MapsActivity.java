@@ -2,6 +2,7 @@ package br.com.gaudium.entrega;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -28,6 +29,7 @@ import br.com.gaudium.entrega.model.DebugLocationRetriever;
 import br.com.gaudium.entrega.model.EntregadorObj;
 import br.com.gaudium.entrega.model.PedidoJsonObj;
 import br.com.gaudium.entrega.model.StatusEntregadorEnum;
+import br.com.gaudium.entrega.user.presentation.UserActivity;
 import br.com.gaudium.entrega.webservice.OfertaPedidoWebService;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -36,7 +38,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LinearLayout layMenuOferta, layMenuColeta, layMenuEntrega;
     private RelativeLayout layColetaButton, layEntregaButton, layMenu;
     private TextView txtEnderecoOferta, txtEnderecoColeta, txtEntrega, txtQtdEntrega, txtEnderecoEntrega, txtTempo;
-    private Button btnRejeitar, btnAceitar, btnColetar, btnEntregar, btnDebugAction;
+    private Button btnRejeitar, btnAceitar, btnColetar, btnEntregar, btnDebugAction, btnUser;
 
     Handler handler;
 
@@ -94,6 +96,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         btnDebugAction = findViewById(R.id.btnDebugAction);
         btnDebugAction.setOnClickListener(view -> onDebugAction());
 
+        btnUser = findViewById(R.id.btnUser);
+        btnUser.setOnClickListener(view -> onProfile());
+
         // Preparar e carregar mapa
         mapFragment.getMapAsync(this);
 
@@ -102,6 +107,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dLocRet = new DebugLocationRetriever();
         dLocRet.setLatLng(-22.904093, -43.175293);
     }
+
 
     /**
      * Manipulates the map once available.
@@ -431,5 +437,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 updateScreen();
             }
         }
+    }
+
+    private void onProfile() {
+        startActivity(new Intent(this, UserActivity.class));
     }
 }

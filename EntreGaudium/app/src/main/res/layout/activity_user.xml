@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/img_entregador">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/viewSemi"
+
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="16dp"
+                android:id="@+id/txtNome"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                tools:text="Augusto Prado"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:fontFamily="@font/open_sans"
+                />
+            <TextView
+                android:id="@+id/txtCargo"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_width="match_parent"
+                tools:text="Coletor"
+                android:fontFamily="@font/open_sans_light"
+                android:textSize="16dp"
+                android:textColor="@color/cargo"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/inferior"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtDescription"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="35dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:textColor="@color/descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="rabalho no ramo de entregas há 3 anos e dizem que sou mais rápido que o Titanic! Aguarde um pouco que logo logo levarei seu pedido com segurança e rapidez! Até mais e obrigado pela preferência!"/>
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
