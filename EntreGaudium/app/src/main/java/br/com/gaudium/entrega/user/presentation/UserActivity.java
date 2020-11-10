@@ -15,7 +15,7 @@ public class UserActivity extends Activity implements UserView{
 
     private UserPresenter presenter;
     private UserRemoteDataSource dataSource;
-    private TextView nome, descricao, cargo;
+    private TextView nome, descricao, cargo, txtSaldo, txtEntregas, txtNota;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +26,10 @@ public class UserActivity extends Activity implements UserView{
         nome = findViewById(R.id.txtNome);
         descricao = findViewById(R.id.txtDescription);
         cargo = findViewById(R.id.txtCargo);
+
+        txtSaldo = findViewById(R.id.txtSaldo);
+        txtEntregas = findViewById(R.id.txtEntregas);
+        txtNota = findViewById(R.id.txtNota);
 
 
         dataSource = new UserRemoteDataSource();
@@ -46,6 +50,9 @@ public class UserActivity extends Activity implements UserView{
         nome.setText(obj.getResponse().getNome());
         cargo.setText(obj.getResponse().getCargo());
         descricao.setText(obj.getResponse().getDescricao());
-        
+        txtEntregas.setText(String.valueOf(obj.getResponse().getEntregas()));
+        txtNota.setText(String.valueOf(obj.getResponse().getNota()));
+        txtSaldo.setText(String.valueOf(obj.getResponse().getSaldo()));
+
     }
 }

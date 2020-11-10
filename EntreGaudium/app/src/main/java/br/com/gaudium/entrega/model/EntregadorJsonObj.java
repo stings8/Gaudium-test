@@ -53,6 +53,26 @@ public class EntregadorJsonObj {
         public void setHistorico(List<Historico> historico) {
             this.historico = historico;
         }
+
+        public float getNota() {
+            float nota = 0;
+            for (Historico obj : historico) {
+                nota += obj.getAvaliacao();
+            }
+            return nota / historico.size();
+        }
+
+        public float getSaldo() {
+            float saldo = 0;
+            for (Historico obj : historico) {
+                saldo += obj.getValor();
+            }
+            return saldo;
+        }
+
+        public int getEntregas() {
+            return historico.size();
+        }
     }
 
 
