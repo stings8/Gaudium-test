@@ -362,11 +362,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (StatusEntregadorEnum.DISPONIVEL.equalsEnum(entregadorObj.getStatus())){
             btnDebugAction.setText(R.string.debug_button_receber_pedido);
             btnDebugAction.setVisibility(View.VISIBLE);
+            btnUser.setVisibility(View.VISIBLE);
         }
 
         // Enquanto decide o botão não deve ser exibido
         if (StatusEntregadorEnum.DECIDINDO.equalsEnum(entregadorObj.getStatus()) && entregadorObj.getPedido() != null){
             btnDebugAction.setVisibility(View.GONE);
+            btnUser.setVisibility(View.GONE);
         }
 
         // Exibe o botão para mover o usuário até o endereço de coleta

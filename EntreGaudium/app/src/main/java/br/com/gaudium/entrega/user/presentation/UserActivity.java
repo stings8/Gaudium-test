@@ -1,17 +1,18 @@
 package br.com.gaudium.entrega.user.presentation;
 
-import android.app.Activity;
+
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import br.com.gaudium.entrega.R;
 import br.com.gaudium.entrega.model.EntregadorJsonObj;
 import br.com.gaudium.entrega.user.datasource.UserRemoteDataSource;
 
-public class UserActivity extends Activity implements UserView{
+public class UserActivity extends FragmentActivity implements UserView{
 
     private UserPresenter presenter;
     private UserRemoteDataSource dataSource;
@@ -55,4 +56,5 @@ public class UserActivity extends Activity implements UserView{
         txtSaldo.setText(String.valueOf(obj.getResponse().getSaldo()));
 
     }
+
 }
