@@ -3,19 +3,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/img_entregador"
     >
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/user_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/img_entregador">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/viewSemi"
-
+            android:layout_above="@id/descricao"
             android:orientation="vertical">
             <TextView
                 android:layout_marginTop="16dp"
@@ -38,15 +35,17 @@
                 tools:text="Coletor"
                 android:fontFamily="@font/open_sans_light"
                 android:textSize="16dp"
+                android:layout_marginBottom="20dp"
                 android:textColor="@color/cargo"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/descricao"
+            android:layout_above="@id/cards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:background="@color/inferior"
             android:orientation="vertical">
             <TextView
@@ -63,10 +62,37 @@
                 tools:text="rabalho no ramo de entregas há 3 anos e dizem que sou mais rápido que o Titanic! Aguarde um pouco que logo logo levarei seu pedido com segurança e rapidez! Até mais e obrigado pela preferência!"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/cards"
+            android:layout_alignParentBottom="true"
+            android:background="@color/inferior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_entregas"
+                android:layout_height="wrap_content">
 
 
-    </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_saldo"
+                android:layout_height="wrap_content">
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_nota"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
 
 </RelativeLayout>

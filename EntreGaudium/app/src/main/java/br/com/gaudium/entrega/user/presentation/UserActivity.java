@@ -46,6 +46,6 @@ public class UserActivity extends Activity implements UserView{
         nome.setText(obj.getResponse().getNome());
         cargo.setText(obj.getResponse().getCargo());
         descricao.setText(obj.getResponse().getDescricao());
-
+        
     }
 }
